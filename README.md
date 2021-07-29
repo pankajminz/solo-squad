@@ -1,6 +1,11 @@
 # solo-squad
 
-A small web app created in HTML, CSS, JQuery and Node.js
+A small web application created using following technologies:
+  - HTML
+  - CSS
+  - JQuery
+  - Node
+  - Express
 
 Dependencies installed:
   - express
