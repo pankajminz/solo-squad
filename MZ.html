@@ -1,0 +1,427 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>3D web design</title>
+
+<link href="https://fonts.googleapis.com/css?family=poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="jquery.tiltedpage-scroll.js"></script>    <!-----js file----->
+<link rel="stylesheet" href="tiltedpage-scroll.css">  <!-----css file---->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	font-family:'poppins' sans-serif;
+}
+body{overflow-x:hidden;}
+
+.header .content-box{
+	background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(bulb.jpg);	
+	background-position:center;
+	background-size:cover;
+	width:100%;
+	height:100vh;
+  }
+
+.menu{
+  	display: inline-flex;
+  }
+
+ .menu img{
+  	height: 60px;
+  	margin:20px 0 0 110px;
+  	cursor: pointer;
+      }
+
+.menu button{
+	padding: 5px 20px;
+	background: #ff4d73;
+	color: #fff;
+	font-size: 16px;
+	border-radius:5px;
+	position:absolute;
+	right: 4%;
+	top:5%;
+	cursor: pointer;
+
+}
+.menu button:hover{background:transparent;transition:0.5s;}
+
+.menu button .fa{margin: 10px;}
+
+.banner-text{
+	width: 80%;
+	color: #fff;
+  margin-left:150px ;
+  margin-top:120px;
+	text-align: center;
+}
+
+.banner-text h2{
+	margin: 50px;
+	font-size: 54px;
+}
+
+.banner-text p{
+	font-size: 18px;
+	margin: 20px 0 50px;
+	position: absolute;
+}
+
+.banner-text a{
+	text-decoration: none;
+	color: #fff;
+	border: 2px solid #ff4d73;
+	border-radius:10px;
+	display: block;
+	padding: 10;
+	width: 180px;
+	margin:auto;
+	background:#ff4d73;
+	transition:.5s;
+}
+
+.banner-text a:hover{
+	background: transparent;
+}
+/*-------------------SERVICE------------------*/
+.service .content-box{
+	background: #DCDCDC;
+	height:100vh;
+	width: 100%;
+}
+h1{
+	text-align: center;
+	padding-top: 100px;
+}
+h1::after{
+	content:' ';
+	background:#ff4d73;
+	display:block;
+	height:3px;
+	width:170px;
+	margin:20px auto 50px;
+}
+.services .icon{
+	font-size:30px;
+margin:20px auto;
+padding:18px;
+height:70px;
+width:70px;
+border:1px solid #ff4d73;
+border-radius:50%;
+color:#ff4d73;
+}
+.services p{
+	font-size:12px;
+	margin-top:10px;
+	color:#777;
+	padding:20px;
+}
+.services span{
+	color:#ff4d73;
+	transition:.5s;
+}
+.services .col-md-3:hover{
+	background:#ff4d73;
+	cursor:pointer;
+	color:#fff;
+	box-shadow:-5px 5px 10px 0 rgba(0,0,0,0.4);
+	transition:.5s;
+}
+.services .col-md-3:hover .icon{
+	border: 1px solid #fff;
+	color: #fff;
+}
+.services .col-md-3:hover p{
+	color: #fff;}
+.services .col-md-3:hover span{
+	color: #fff;}
+	/*---------------------------FEATURE---------------------------*/
+.feature h2{margin-top: 130px;}
+.feature .content-box{
+	background: #DCDCDC;
+	height:100vh;
+	width: 100%;
+}
+
+.feature.content-box{
+	background: #DCDCDC;
+	height:100vh;
+	width: 100%;}
+
+.feature h2::after{
+	content: ' ';
+	background:#ff4d73;
+	display:block;
+	height:3px;
+	width:100px;
+	margin:20px auto 50px;
+	position:absolute;
+	left:17px;
+}
+.feature ul{
+	margin-top:30px;
+	margin-left:50px;
+	list-style-type:none;
+
+}
+.feature ul li{
+	line-height: 40px;
+	font-size:14px;
+	position: relative;
+}
+.feature ul::after{
+	content:' ';
+	height:7px;
+	width: 7px;
+	background:#ff4d73;
+	transform:rotate(45deg);
+	position: absolute;
+	top:17px;
+	left:-25px;
+}
+.feature img{
+	margin-top: 130px;
+}
+
+	/*====================---------------- The Modal (background)---------------------================= */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 80px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color:#778899;
+  margin: 5px auto; /* 15% from the top and centered */
+  border: 1px solid #888;
+  width: 90%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  /* Position it in the top right corner outside of the modal */
+  position: absolute;
+  right: 25px;
+  top: 20; 
+  color:red;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* Close button on hover */
+.close:hover,.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/*---------------------------------------------FOOTER CSS-----------------------------------------*/
+.footer h1{padding-top: 50px;}
+.footer-form{padding:15px;}
+
+.footer{background:#DCDCDC;}
+.form-control{border:none !important;
+	border-radius:0 !important;
+	box-shadow:none !important;}
+
+::placeholder{font-size:12px;}
+
+.contact-form button{border:none !important;
+	background:#ff4d73 !important;
+	box-shadow:none !important;
+	border-radius:0;
+}
+.contact-info .follow{background-color:#fff;
+padding: 8px;
+margin: 15px;}
+
+.contact-info .fa{margin:10px;font-size:20px !important;color:#ff4d73 !important;font-weight:bold;}
+
+.contact-info span{font-size:14px;}
+
+.copyright{text-align: center;font-size: 14px;background:#000000;color:darkred;width:100%;height: 30px;}
+
+.fa-heart-o{color: red;font-size: 17px;}
+
+.footer hr{margin-top:50px;background:#ff4d73;}
+/*----------------------------------3D---------------------------------------------*/
+.service,.feature,.footer{margin-top:10%;}
+
+
+</style>
+</head>
+<body>
+	<div class="main">
+<section class="header">
+<div class="content-box">
+	           <div class="menu">
+	           	<img src="5.png">
+		      <!-- Button to open the modal login form -->
+<button onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-sign-in"></i>Login</button>
+</div>
+<!-- The Modal -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" 
+class="close" title="Close Modal">&times;</span>
+
+  <!------- Modal Content----------->
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <img src="4.png" alt="Electrical engineering" class="avatar">
+    </div>
+
+          <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+          <button type="submit">Login</button>          
+          <input type="checkbox" checked="checked" name="remember"> Remember me          
+           <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+           <span class="psw"><a href="#">Forgot password?</a></span>
+    			</div>
+  </form>
+</div>
+			<div class="banner-text">
+			<p><h2>Electrical Engineering Club<br>(EE Club)</h2>We help make the EE student experience exceptional!!!</p>
+			<a href="/about">About Us</a><br><a href="/about">Join Us</a>
+			</div>
+</div>
+</section>
+<!----------------------------------------------------------Service--------------------------------------------->
+<section class="service">
+	<div class="content-box">
+		 <div class="container"> <h1>Our Service</h1>
+		 	<div class="row services">
+		 		<div class="col-md-3 text-center">
+		 			<div class="icon"><i class="fa fa-renren"></i></div>
+		 		    <h3>Job<span>  Placement</span></h3>
+		 		      <p> We help you get connected with best placement consultants in your area to secure a job in the field of your interest<br>some companies are<br>TATA tcs<br>Ninja<br>Tisco<br>Raj group of industry</p>
+		 		              </div>
+		 		                <div class="col-md-3 text-center">
+		 		                 	<div class="icon"><i class="fa fa-renren"></i></div>
+		 		                    <h3>Speaking<span>	English</span></h3>
+		 		                     <p> We cover all important speaking skills: pronunciation, fluency, intonation, word stress, listening, and contextual vocabulary. We also provide an IELTS speaking score predictor so that Students boost their performance and confidence in speaking English </p>
+		 	                	</div>
+		 		             <div class="col-md-3 text-center">
+		 	            <div class="icon"><i class="fa fa-renren"></i></div>
+		 		        <h3>Personality <span>devlop </span></h3>
+		 		  <p> we are not just about learning concepts but also built the charecter of an student.owever, character building can also be done proactively through planned actions and activities within the classroom. These classroom activities will encourage students to develop and adopt quality ethical principles and behaviors that can last far beyond the classroom</p>
+		 		</div>
+		 		<div class="col-md-3 text-center">
+		 			<div class="icon"><i class="fa fa-renren"></i></div>
+		 		  <h3>Team <span>  Work</span></h3>
+		 		  <p>we are here for teach the student to how the work in a team ,so that they can work in a project,without any difficulties,here they will learn to share different types of works..</p>
+		 		</div>
+		 		</div>
+		 	</div>
+		 </div>
+	</div>
+</section>
+<!------------------------------------------------FEATURE-------------------------------------------------->
+<section class="feature">
+	<div class="content-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h2>Electrical Engineering Club Aims:</h2>
+					  <ul>
+						<li><b>1</b> To provide a platform for Electrical Engineering students to socialise with their peers and to encourage a feeling of community in the electrical engineering stream..   </li>
+						<li>    </li>
+						<li><b>2</b>  To form a group who can be responsible for liaising with department staff and future students regarding student concerns and subject advice..</li>
+						<li>    </li>
+						<li><b>3</b> To improve the image of electrical engineering to a more socially diverse group, with a view to attracting future students and promoting equal gender representation in the stream..   </li>
+						<li>    </li>
+						<li><b>4</b> To provide an opportunity for new students entering the Master of Electrical Engineering from other Universities to meet their peers and form networks..  </li>
+					  </ul>
+				    </div>
+				 <div class="col-md-6"><img src="bijlip.jpg" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-------------------------------------------------------FOOTER------------------------------------------------->
+<section class="footer">
+	<div class="content-box">
+		<div class="container"><h1>Get In Touch</h1>
+			<div class="row">
+				<div class="col-md-6">
+					<form class="contact-form">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Your Name">
+						  </div>
+						  <div class="form-group">
+							<input type="number" class="form-control" placeholder="Phone Number">
+						  </div>
+						  <div class="form-group">
+							<input type="email" class="form-control" placeholder="E-mail Id">
+						  </div>
+						  <div class="form-group">
+							<textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+						  </div>
+						  <button type="submit" class="btn btn-primary">Send Message</button>
+					  </form>
+				  </div>
+				<div class="col-md-6" contact-info>
+					<div class="follow">
+						<i class="fa fa-map-maker"></i><span>xyz road, chaibasa,jharkhand</span>
+					</div>
+					<div class="follow">
+						<i class="fa fa-phone"></i><span>+91 6202561364</span>
+					</div>
+					<div class="follow">
+						<i class="fa fa-envelop-o"></i><span>hello@example.com</span>
+					</div>
+					<div class="follow">
+						<a href="https://www.facebook.com/UAlbertaElectricalEngineeringClub/"><i class="fa fa-facebook-official"></i></a>
+						<a href="https://www.instagram.com/ee_ualberta/"><i class="fa fa-flickr"></i><a>
+						<a href="https://open.spotify.com/playlist/1xmiF10HBjejyUw8OWcBUk?si=xS5i8dhhQku1cVzhe3mfpQ&nd=1"><i class="fa fa-twitter"></i></a>
+						<a href="https://www.linkedin.com/company/essualberta/"><i class="fa fa-linkedin"></i></a>
+					</div>
+				</div>
+			</div><hr><p class="copyright">Made with<i class="fa fa-heart"></i> by Easy Tutorials</p>
+	  </div>
+  </div>
+</section>
+</div>
+
+<script>
+	$(".main").tiltedpage_scroll({sectionContainer:"> section",angle:50,opacity:true,outAnimation:true});
+</script>
+
+<!---------------------------------------------END-------------------------------------------------->
+</body>
+</html>
